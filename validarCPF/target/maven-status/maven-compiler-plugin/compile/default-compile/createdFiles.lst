@@ -1,0 +1,6 @@
+com\example\validarCPF\annotation\ValidCpf.class
+com\example\validarCPF\config\CpfValidatorAutoConfiguration.class
+com\example\validarCPF\service\CpfValidationService.class
+com\example\validarCPF\ValidarCpfApplication.class
+com\example\validarCPF\exception\CpfInvalidException.class
+com\example\validarCPF\validator\CpfValidator.class
