@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+ 
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos/head :: head('Listagem Clientes')}"></head>
+<body>
+<header th:replace="~{fragmentos/header :: header(activePage='Cliente')}"></header>
+	<div class="container-fluid" style="max-width: 900px; margin: 0 auto;">
+		<h2 class="text-center"
+			th:text="${cliente!= null} ? 'Editar Cliente' : 'Lista Clientes'"></h2>
+		<div th:if="${message != null}"
+			class="alert alert-success alert-dismissible fade show text-center"
+			role="alert">
+			[[${message}]]
+			<button type="button" class="close btn-sm" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+    <a href="/cliente/formulario">Novo</a>
+    <div th:if="${listaClientes.size() > 0}">
+	    <table class="table table-hover table-responsive-xl">
+	        <thead class="thead-light">
+	            <tr>
+	                <th scope="col">Nome</th>
+	                <th scope="col">Fone</th>
+	                <th scope="col">CPF</th>
+	                <th scope="col">Email</th>
+	                <th scope="col">Ações</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr th:each="cliente : ${listaClientes}">
+	                <td th:text="${cliente.nome}"></td>
+	                <td th:text="${cliente.fone}"></td>
+	                <td th:text="${cliente.cpf}"></td>
+	                <td th:text="${cliente.email}"></td>
+						
+					<td><a th:href="@{'/cliente/formulario/' + ${cliente.id}}"
+							title="Editar o cliente"
+							class="fa-regular fa-pen-to-square icon-dark"></a> &nbsp; <a
+							
+							
+							th:href="@{'/cliente/delete/' + ${cliente.id}}"
+							th:clienteTitle="${cliente.nome}" id="btnDelete"
+							title="Apague este cliente"
+							class="fa-regular fa-trash-can icon-dark btn-delete"></a>
+					</td>
+	            </tr>
+	        </tbody>
+	    </table>
+	  </div>
+    </div>
+	<div th:replace="fragmentos/footer :: footer"></div>
+</body>
+</html>

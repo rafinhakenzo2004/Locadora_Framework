@@ -1,6 +1,5 @@
 package com.example.demo.cliente;
 
-import com.example.validarCPF.annotation.ValidCpf;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,7 +15,6 @@ public class Cliente {
 
     private String nome;
     
-    @ValidCpf(message = "CPF inválido")
     private String cpf;
     private String email;
 

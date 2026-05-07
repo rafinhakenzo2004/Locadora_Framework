@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import jakarta.validation.Valid;
  
  
 @Service
@@ -20,6 +22,10 @@ public class FilmeService {
 	}
 	public List<Filme> findAllById(List<Long> filmesIds) {
 		return filmeRepository.findAllById(filmesIds);
+	}
+	public void salvar(@Valid DadosCadastroFilme dados) {
+		// TODO Auto-generated method stub
+		
 	}
  
 /*	public List<Filme> buscarLancamentosDoAno() {
